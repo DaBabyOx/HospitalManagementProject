@@ -1,13 +1,58 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    image: 'postgres:16-alpine'
+    container_name: RS-postgres
+    restart: always
+    ports: '5432:5432'
+    env_file: .env
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
-    ports:
-      - '5432'
+      POSTGRES_DB: ${URL}
+      POSTGRES_USER: ${User}
+      POSTGRES_PASSWORD: ${Pass}
+      TZ: Asia/Jakarta
+      PGTZ: Asia/Jakarta
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d/
+    networks:
+      - rsnet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${User} -d ${DB}"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    
   redis:
-    image: 'redis:latest'
+    image: redis:alpine
+    container_name: RS-redis
+    restart: always
+    ports: '6379:6379'
+    volumes:
+      - redisdata:/data
+    networks:
+      - rsnet
+    command: redis-server --appendonly yes
+
+  minio:
+    image: minio/minio
+    container_name: RS-minio
+    restart: always
     ports:
-      - '6379'
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      MINIO_ROOT_USER: ${MUser}
+      MINIO_ROOT_PASSWORD: ${MPass}
+    command: server /data --console-address ':9001'
+    volumes: miniodata:/data
+    networks: rsnet
+  
+  volumes:
+    redisdata:
+    postgresdata:
+    miniodata:
+  
+  networks:
+    rsnet:
+      driver: bridge
