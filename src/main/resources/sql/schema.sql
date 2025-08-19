@@ -1,14 +1,20 @@
-create table Patient(
-    idPatient serial primary key,
-    patientName varchar(255) not null,
+create table User(
+    idUser serial primary key,
+    name varchar(255) not null,
     dateOfBirth date not null,
-    phone varchar(15) not null,
-    constraint phoneCheck check (phone ~ '^\+?[1-9][0-9]{7,14}$'),
-    address text not null,
+    gender char(1) not null,
     email varchar(50) not null,
     password text not null,
-    gender char(1) not null,
-    allergy text);
+    address text not null,
+);
+
+create table Patient(
+    idPatient serial not null,
+    phone varchar(15) not null,
+    constraint phoneCheck check (phone ~ '^\+?[1-9][0-9]{7,14}$'),
+    allergy text,
+    primary key(idPatient),
+    foreign key (idPatient) references User(idUser) on delete cascade);
 
 create table Insurance(
     idInsurance serial primary key,
@@ -67,11 +73,8 @@ create table DoctorShift(
 create table Admin(
     idAdmin serial not null,
     namaAdmin varchar(100) not null,
-    address text not null,
-    dateOfBirth date not null,
-    email varchar(50) not null,
-    password text not null,
-    gender char(1) not null);
+    primary key(idAdmin),
+    foreign key (idAdmin) references User(idUser) on delete cascade);
 
 create table Review(
     idReview serial primary key,
