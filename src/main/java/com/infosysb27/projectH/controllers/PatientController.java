@@ -2,9 +2,10 @@ package com.infosysb27.projectH.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import com.infosysb27.projectH.services.PatientService;
 import com.infosysb27.projectH.models.User;
-import com.infosysb27.projectH.DTO.PatientSignUpRequest;;
+import com.infosysb27.projectH.DTO.PatientSignUpRequest;
 
 
 @RestController
@@ -31,5 +32,16 @@ public class PatientController {
             return ResponseEntity.ok("Patient registered!");}
         catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());}
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String>login(@RequestBody PatientLogInRequest request){
+        try{
+            patientService.authenticate(PatientLogInRequest.getEmail(), PatientLogInRequest.getPassword());
+       
+            return new ResponseEntity<>("Log in is successful !");
+       }catch(Exception e){
+        return ResponseEntity.badRequest().body(e.getMessage());
+       }
     }
 }
