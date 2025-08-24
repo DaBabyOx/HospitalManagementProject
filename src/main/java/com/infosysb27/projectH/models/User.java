@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUser;
+    private Long idUser;
     private String name;
     private LocalDate dateOfBirth;
     private char gender;
@@ -23,8 +23,8 @@ public Long getIdUser(){
     return idUser;
 }
 
-public void setIdUser(long newIdUser){
-    this.idUser = idUser;
+public void setIdUser(Long newIdUser){
+    this.idUser = newIdUser;
 }
 
 public String getName(){
@@ -32,7 +32,7 @@ public String getName(){
 }
 
 public void setName(String newName){
-    this.name = name;
+    this.name = newName;
 }
 
 public LocalDate setDateOfBirth(){
@@ -40,7 +40,7 @@ public LocalDate setDateOfBirth(){
 }
 
 public void getDateOfBirth(LocalDate newDateOfBirth){
-    this.dateOfBirth = dateOfBirth;
+    this.dateOfBirth = newDateOfBirth;
 }
 
 public char getGender(){
@@ -48,7 +48,7 @@ public char getGender(){
 }
 
 public void setGender(char newGender){
-    this.gender = gender;
+    this.gender = newGender;
 }
 
 public String getEmail(){
@@ -56,7 +56,7 @@ public String getEmail(){
 }
 
 public void setEmail(String newEmail){
-    this.email = email;
+    this.email = newEmail;
 }
 
 public String getPassword(){
@@ -64,7 +64,7 @@ public String getPassword(){
 }
 
 public void setPassword(String newPassword){
-    this.password = password;
+    this.password = newPassword;
 }
 
 public String getAddress(){
@@ -72,6 +72,6 @@ public String getAddress(){
 }
 
 public void setAddress(String newAddress){
-    this.address = address;
+    this.address = newAddress;
 }
 }

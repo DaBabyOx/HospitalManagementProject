@@ -19,8 +19,8 @@ public Long getIdPatient(){
     return idPatient;
 }
 
-public void setIdPatient(String newIdPatient){
-    this.idPatient = idPatient;
+public void setIdPatient(Long newIdPatient){
+    this.idPatient = newIdPatient;
 }
 
 public User getUser(){
@@ -28,7 +28,7 @@ public User getUser(){
 }
 
 public void setUser(User newUser){
-    this.user = user;
+    this.user = newUser;
 }
 
 public String getPhone(){
@@ -36,7 +36,7 @@ public String getPhone(){
 }
 
 public void setPhone(String newPhone){
-    this.phone = phone;
+    this.phone = newPhone;
 }
 
 public String getAllergy(){
@@ -44,6 +44,6 @@ public String getAllergy(){
 }
 
 public void setAllergy(String newAllergy){
-    this.allergy = allergy;
+    this.allergy = newAllergy;
 }
 }

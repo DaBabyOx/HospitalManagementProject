@@ -19,8 +19,8 @@ public Long getIdAdmin(){
     return idAdmin;
 }
 
-public void setIdAdmin(String newIdAdmin){
-    this.idPatient = newIdAdmin;
+public void setIdAdmin(Long newIdAdmin){
+    this.idAdmin = newIdAdmin;
 }
 
 public User getUser(){
