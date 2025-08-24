@@ -72,6 +72,8 @@ create table DoctorShift(
 create table Admin(
     idAdmin serial not null,
     namaAdmin varchar(100) not null,
+    department varchar(25) not null,
+    role varchar (25) not null,
     primary key(idAdmin),
     foreign key (idAdmin) references User(idUser) on delete cascade);
 
