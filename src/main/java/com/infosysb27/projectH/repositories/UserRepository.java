@@ -1,4 +1,4 @@
-package com.infosysb27.projectH.Repository;
+package com.infosysb27.projectH.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.infosysb27.projectH.models.User;
