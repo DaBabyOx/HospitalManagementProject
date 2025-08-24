@@ -18,4 +18,60 @@ public class User {
     private String email;
     private String password;
     private String address;
+
+public Long getIdUser(){
+    return idUser;
+}
+
+public void setIdUser(long newIdUser){
+    this.idUser = idUser;
+}
+
+public String getName(){
+    return name;
+}
+
+public void setName(String newName){
+    this.name = name;
+}
+
+public LocalDate setDateOfBirth(){
+    return dateOfBirth;
+}
+
+public void getDateOfBirth(LocalDate newDateOfBirth){
+    this.dateOfBirth = dateOfBirth;
+}
+
+public char getGender(){
+    return gender;
+}
+
+public void setGender(char newGender){
+    this.gender = gender;
+}
+
+public String getEmail(){
+    return email;
+}
+
+public void setEmail(String newEmail){
+    this.email = email;
+}
+
+public String getPassword(){
+    return password;
+}
+
+public void setPassword(String newPassword){
+    this.password = password;
+}
+
+public String getAddress(){
+    return address;
+}
+
+public void setAddress(String newAddress){
+    this.address = address;
+}
 }

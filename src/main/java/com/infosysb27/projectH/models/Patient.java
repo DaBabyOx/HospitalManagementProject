@@ -14,4 +14,36 @@ public class Patient {
     private User user;
     private String phone;
     private String allergy;
+
+public Long getIdPatient(){
+    return idPatient;
+}
+
+public void setIdPatient(String newIdPatient){
+    this.idPatient = idPatient;
+}
+
+public User getUser(){
+    return user;
+}
+
+public void setUser(User newUser){
+    this.user = user;
+}
+
+public String getPhone(){
+    return phone;
+}
+
+public void setPhone(String newPhone){
+    this.phone = phone;
+}
+
+public String getAllergy(){
+    return allergy;
+}
+
+public void setAllergy(String newAllergy){
+    this.allergy = allergy;
+}
 }
