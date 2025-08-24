@@ -5,8 +5,7 @@ create table User(
     gender char(1) not null,
     email varchar(50) not null,
     password text not null,
-    address text not null,
-);
+    address text not null);
 
 create table Patient(
     idPatient serial not null,
